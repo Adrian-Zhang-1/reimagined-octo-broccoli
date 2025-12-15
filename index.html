@@ -609,6 +609,85 @@
         .hobby-desc { 
             color: var(--gray-300); 
             line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* 图片展示区域样式 */
+        .image-gallery {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .gallery-title {
+            color: var(--val-red);
+            font-size: 16px;
+            margin-bottom: 12px;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 10px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 6px;
+            height: 100px;
+            background: rgba(20, 20, 30, 0.5);
+            border: 1px solid rgba(255, 45, 85, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover {
+            border-color: var(--val-red);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 45, 85, 0.3);
+        }
+
+        .gallery-placeholder {
+            color: var(--val-red);
+            font-size: 14px;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item .add-btn {
+            background: transparent;
+            border: none;
+            color: var(--val-red);
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-item .add-btn:hover {
+            transform: scale(1.2);
         }
 
         .works-grid {
@@ -949,6 +1028,10 @@
             .hobby-grid, .works-grid {
                 gap: 20px;
             }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 480px) {
@@ -1048,10 +1131,10 @@
                 <h2 class="section-title font-orbitron">关于我</h2>
                 <div class="about-text font-rajdhani-light">
                     <p>
-                        你好！我是张潇，一名热爱科技、健身与咖啡的大学生。主修网络信息系统课程，喜欢在代码与设计中寻找创造的乐趣。
+                        你好！我是张潇，一名热爱科技、健身、咖啡与音乐的大学生。主修网络信息系统课程，喜欢在代码与设计中寻找创造的乐趣。
                     </p>
                     <p>
-                        我热爱游戏与科技，喜欢研究网页动画、UI特效和互动体验。生活中热衷健身与摄影，保持头脑与身体的平衡。
+                        我热爱游戏与科技，喜欢研究网页动画、UI特效和互动体验。生活中热衷健身与摄影，保持头脑与身体的平衡。同时我热爱唱歌，曾多次参加学院的歌唱比赛和文艺活动，并取得了优异的成绩，音乐是我表达情感的重要方式。
                     </p>
                     <div class="tag-container">
                         <span class="tag font-rajdhani">JavaScript</span>
@@ -1059,6 +1142,8 @@
                         <span class="tag font-rajdhani">游戏设计</span>
                         <span class="tag font-rajdhani">健身</span>
                         <span class="tag font-rajdhani">摄影</span>
+                        <span class="tag font-rajdhani">唱歌</span>
+                        <span class="tag font-rajdhani">咖啡</span>
                     </div>
                 </div>
             </div>
@@ -1080,7 +1165,41 @@
                         <p class="hobby-desc font-rajdhani-light">
                             沉迷《无畏契约》的竞技策略，研究战术配合与角色玩法，享受团队协作的乐趣。
                         </p>
+                        <!-- 游戏相关图片展示区 -->
+                        <div class="image-gallery">
+                            <h4 class="gallery-title">游戏瞬间</h4>
+                            <div class="gallery-grid">
+                                <!-- 游戏截图1 - 预留位置 -->
+                                <div class="gallery-item">
+                                    <div class="gallery-placeholder">
+                                        <i data-feather="gamepad"></i>
+                                        <p>游戏截图1</p>
+                                    </div>
+                                </div>
+                                <!-- 游戏截图2 - 预留位置 -->
+                                <div class="gallery-item">
+                                    <div class="gallery-placeholder">
+                                        <i data-feather="gamepad"></i>
+                                        <p>游戏截图2</p>
+                                    </div>
+                                </div>
+                                <!-- 游戏截图3 - 预留位置 -->
+                                <div class="gallery-item">
+                                    <div class="gallery-placeholder">
+                                        <i data-feather="trophy"></i>
+                                        <p>战绩截图</p>
+                                    </div>
+                                </div>
+                                <!-- 添加更多按钮 -->
+                                <div class="gallery-item">
+                                    <button class="add-btn">
+                                        <i data-feather="plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    
                     <div class="hobby-card">
                         <div class="hobby-header">
                             <div class="hobby-icon">
@@ -1091,7 +1210,41 @@
                         <p class="hobby-desc font-rajdhani-light">
                             研究网页动画、UI特效和互动体验，用代码实现创意设计，探索前端技术的边界。
                         </p>
+                        <!-- 开发相关图片展示区 -->
+                        <div class="image-gallery">
+                            <h4 class="gallery-title">开发作品</h4>
+                            <div class="gallery-grid">
+                                <!-- 开发截图1 - 预留位置 -->
+                                <div class="gallery-item">
+                                    <div class="gallery-placeholder">
+                                        <i data-feather="code"></i>
+                                        <p>代码截图1</p>
+                                    </div>
+                                </div>
+                                <!-- 开发截图2 - 预留位置 -->
+                                <div class="gallery-item">
+                                    <div class="gallery-placeholder">
+                                        <i data-feather="code"></i>
+                                        <p>代码截图2</p>
+                                    </div>
+                                </div>
+                                <!-- 开发截图3 - 预留位置 -->
+                                <div class="gallery-item">
+                                    <div class="gallery-placeholder">
+                                        <i data-feather="monitor"></i>
+                                        <p>作品预览</p>
+                                    </div>
+                                </div>
+                                <!-- 添加更多按钮 -->
+                                <div class="gallery-item">
+                                    <button class="add-btn">
+                                        <i data-feather="plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    
                     <div class="hobby-card">
                         <div class="hobby-header">
                             <div class="hobby-icon">
@@ -1102,7 +1255,38 @@
                         <p class="hobby-desc font-rajdhani-light">
                             保持规律健身习惯，注重力量训练与有氧运动，维持身体状态与精神活力的平衡。
                         </p>
+                        <!-- 健身相关图片展示区 -->
+                        <div class="image-gallery">
+                            <h4 class="gallery-title">健身记录</h4>
+                            <div class="gallery-grid">
+                                <!-- 健身照片1 - 替换为用户提供的gym.jpg -->
+                                <div class="gallery-item">
+                                    <img src="https://github.com/Adrian-Zhang-1/reimagined-octo-broccoli/raw/main/gym.jpg" alt="健身照片1">
+                                </div>
+                                <!-- 健身照片2 - 预留位置 -->
+                                <div class="gallery-item">
+                                    <div class="gallery-placeholder">
+                                        <i data-feather="activity"></i>
+                                        <p>健身照片2</p>
+                                    </div>
+                                </div>
+                                <!-- 健身照片3 - 预留位置 -->
+                                <div class="gallery-item">
+                                    <div class="gallery-placeholder">
+                                        <i data-feather="heart"></i>
+                                        <p>运动记录</p>
+                                    </div>
+                                </div>
+                                <!-- 添加更多按钮 -->
+                                <div class="gallery-item">
+                                    <button class="add-btn">
+                                        <i data-feather="plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    
                     <div class="hobby-card">
                         <div class="hobby-header">
                             <div class="hobby-icon">
@@ -1113,6 +1297,114 @@
                         <p class="hobby-desc font-rajdhani-light">
                             用镜头捕捉生活中的美好瞬间，专注科技产品、游戏场景与城市风光的拍摄。
                         </p>
+                        <!-- 摄影作品展示区 -->
+                        <div class="image-gallery">
+                            <h4 class="gallery-title">我的摄影作品</h4>
+                            <div class="gallery-grid">
+                                <!-- 摄影作品1 - 替换为用户提供的photo1.jpg -->
+                                <div class="gallery-item">
+                                    <img src="https://github.com/Adrian-Zhang-1/reimagined-octo-broccoli/raw/main/photo1.jpg" alt="摄影作品1">
+                                </div>
+                                <!-- 摄影作品2 - 替换为用户提供的photo2.jpg -->
+                                <div class="gallery-item">
+                                    <img src="https://github.com/Adrian-Zhang-1/reimagined-octo-broccoli/raw/main/photo2.jpg" alt="摄影作品2">
+                                </div>
+                                <!-- 摄影作品3 - 替换为用户提供的photo3.jpg -->
+                                <div class="gallery-item">
+                                    <img src="https://github.com/Adrian-Zhang-1/reimagined-octo-broccoli/raw/main/photo3.jpg" alt="摄影作品3">
+                                </div>
+                                <!-- 添加更多按钮 -->
+                                <div class="gallery-item">
+                                    <button class="add-btn">
+                                        <i data-feather="plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hobby-card">
+                        <div class="hobby-header">
+                            <div class="hobby-icon">
+                                <i data-feather="music"></i>
+                            </div>
+                            <h3 class="hobby-title font-rajdhani">唱歌与音乐</h3>
+                        </div>
+                        <p class="hobby-desc font-rajdhani-light">
+                            热爱唱歌，多次参加学院歌唱比赛和文艺活动并取得优异成绩。音乐是我表达情感、释放压力的重要方式，享受用歌声传递情感的过程。
+                        </p>
+                        <!-- 唱歌照片展示区 -->
+                        <div class="image-gallery">
+                            <h4 class="gallery-title">我的唱歌照片</h4>
+                            <div class="gallery-grid">
+                                <!-- 唱歌照片1 - 替换为用户提供的sing.jpg -->
+                                <div class="gallery-item">
+                                    <img src="https://github.com/Adrian-Zhang-1/reimagined-octo-broccoli/raw/main/sing.jpg" alt="表演照片1">
+                                </div>
+                                <!-- 唱歌照片2 - 预留位置 -->
+                                <div class="gallery-item">
+                                    <div class="gallery-placeholder">
+                                        <i data-feather="music"></i>
+                                        <p>表演照片2</p>
+                                    </div>
+                                </div>
+                                <!-- 获奖照片 - 预留位置 -->
+                                <div class="gallery-item">
+                                    <div class="gallery-placeholder">
+                                        <i data-feather="award"></i>
+                                        <p>获奖照片</p>
+                                    </div>
+                                </div>
+                                <!-- 添加更多按钮 -->
+                                <div class="gallery-item">
+                                    <button class="add-btn">
+                                        <i data-feather="plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hobby-card">
+                        <div class="hobby-header">
+                            <div class="hobby-icon">
+                                <i data-feather="coffee"></i>
+                            </div>
+                            <h3 class="hobby-title font-rajdhani">咖啡文化</h3>
+                        </div>
+                        <p class="hobby-desc font-rajdhani-light">
+                            热爱咖啡文化，喜欢探索不同产区的咖啡豆，研究手冲技巧。享受咖啡带来的宁静时光和创意灵感。
+                        </p>
+                        <!-- 咖啡图片展示区 -->
+                        <div class="image-gallery">
+                            <h4 class="gallery-title">我的咖啡收藏</h4>
+                            <div class="gallery-grid">
+                                <!-- 咖啡图片1 - 替换为用户提供的coffee.jpg -->
+                                <div class="gallery-item">
+                                    <img src="https://github.com/Adrian-Zhang-1/reimagined-octo-broccoli/raw/f7f10a74a50e17742050980658f8a7c03f15bb3e2/coffee.jpg" alt="咖啡器具">
+                                </div>
+                                <!-- 咖啡图片2 - 预留位置 -->
+                                <div class="gallery-item">
+                                    <div class="gallery-placeholder">
+                                        <i data-feather="coffee"></i>
+                                        <p>手冲咖啡</p>
+                                    </div>
+                                </div>
+                                <!-- 咖啡图片3 - 预留位置 -->
+                                <div class="gallery-item">
+                                    <div class="gallery-placeholder">
+                                        <i data-feather="coffee"></i>
+                                        <p>咖啡豆</p>
+                                    </div>
+                                </div>
+                                <!-- 添加更多按钮 -->
+                                <div class="gallery-item">
+                                    <button class="add-btn">
+                                        <i data-feather="plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1425,6 +1717,14 @@
                             behavior: 'smooth'
                         });
                     }
+                });
+            });
+            
+            // 图片添加按钮功能
+            document.querySelectorAll('.add-btn').forEach(function(button) {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('您可以在这里添加您的照片！\n\n使用方法：\n1. 将您的图片上传到图床或服务器\n2. 获取图片URL\n3. 将代码中的 <div class="gallery-placeholder"> 替换为 <img src="您的图片URL">');
                 });
             });
             
